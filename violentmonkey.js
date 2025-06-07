@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Bing to Google
 // @namespace   github.com/kiriles90
-// @version     2.0
-// @date        2025-06-08
+// @version     2.1
+// @date        2025-06-09
 // @author      github.com/kiriles90
 // @updateURL   https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
 // @downloadURL https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
@@ -12,55 +12,53 @@
 // @grant       none
 // ==/UserScript==
 var query = document.URL.match(/q\=[^&]*/).toString().replace("q=", "");
+var engine = query.split("%3A+")[0];
 var newurl;
-function selectEngine(term) {
-    return query.includes(term);
-}
-switch (true) {
-    case selectEngine(term = encodeURIComponent("1337x:")):
-        newurl = "https://1337x.to/search/"+query.replace(term + "+", "")+"/1/";
+switch (engine) {
+    case "1337x":
+        newurl = "https://1337x.to/search/"+query.replace(engine + "%3A+", "")+"/1/";
         break;
-    case selectEngine(term = encodeURIComponent("coverapi:")):
-        newurl = "https://tv643.ct.ws/coverapi/#"+query.replace(term + "+", "");
+    case "coverapi":
+        newurl = "https://tv643.ct.ws/coverapi/#"+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("eztv:")):
-        newurl = "https://eztvx.to/search/"+query.replace(term + "+", "");
+    case "eztv":
+        newurl = "https://eztvx.to/search/"+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("maps:")):
-        newurl = "https://www.google.com/maps/search/"+query.replace(term + "+", "")+"/";
+    case "maps":
+        newurl = "https://www.google.com/maps/search/"+query.replace(engine + "%3A+", "")+"/";
         break;
-    case selectEngine(term = encodeURIComponent("imdb:")):
-        newurl = "https://www.imdb.com/find?q="+query.replace(term + "+", "");
+    case "imdb":
+        newurl = "https://www.imdb.com/find?q="+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("nyaa:")):
-        newurl = "https://nyaa.si/?f=0&c=0_0&q="+query.replace(term + "+", "");
+    case "nyaa":
+        newurl = "https://nyaa.si/?f=0&c=0_0&q="+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("opensubtitles:")):
-        newurl = "https://www.opensubtitles.org/en/search2/moviename-"+query.replace(term + "+", "")+"/sublanguageid-all";
+    case "opensubtitles":
+        newurl = "https://www.opensubtitles.org/en/search2/moviename-"+query.replace(engine + "%3A+", "")+"/sublanguageid-all";
         break;
-    case selectEngine(term = encodeURIComponent("rlsbb:")):
-        newurl = "https://search.rlsbb.ru/?s="+query.replace(term + "+", "");
+    case "rlsbb":
+        newurl = "https://search.rlsbb.ru/?s="+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("scene-rls:")):
-        newurl = "https://scene-rls.net/?s="+query.replace(term + "+", "");
+    case "scene-rls":
+        newurl = "https://scene-rls.net/?s="+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("solidtorrents:")):
-        newurl = "https://solidtorrents.to/search?q="+query.replace(term + "+", "")+"&sort=seeders";
+    case "solidtorrents":
+        newurl = "https://solidtorrents.to/search?q="+query.replace(engine + "%3A+", "")+"&sort=seeders";
         break;
-    case selectEngine(term = encodeURIComponent("thepiratebay:")):
-        newurl = "https://thepiratebay.org/search.php?q="+query.replace(term + "+", "")+"&all=on&search=Pirate+Search&page=0";
+    case "thepiratebay":
+        newurl = "https://thepiratebay.org/search.php?q="+query.replace(engine + "%3A+", "")+"&all=on&search=Pirate+Search&page=0";
         break;
-    case selectEngine(term = encodeURIComponent("therarbg:")):
-        newurl = "https://therarbg.to/get-posts/order:-se:keywords:"+query.replace(term + "+", "")+"/";
+    case "therarbg":
+        newurl = "https://therarbg.to/get-posts/order:-se:keywords:"+query.replace(engine + "%3A+", "")+"/";
         break;
-    case selectEngine(term = encodeURIComponent("yourbittorrent:")):
-        newurl = "https://yourbittorrent.com/?v=&c=&q="+query.replace(term + "+", "");
+    case "yourbittorrent":
+        newurl = "https://yourbittorrent.com/?v=&c=&q="+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("youtube:")):
-        newurl = "https://www.youtube.com/results?search_query="+query.replace(term + "+", "");
+    case "youtube":
+        newurl = "https://www.youtube.com/results?search_query="+query.replace(engine + "%3A+", "");
         break;
-    case selectEngine(term = encodeURIComponent("yts:")):
-        newurl = "https://yts.mx/browse-movies/"+query.replace(term + "+", "")+"/all/all/0/latest/0/all";
+    case "yts":
+        newurl = "https://yts.mx/browse-movies/"+query.replace(engine + "%3A+", "")+"/all/all/0/latest/0/all";
         break;
     default:
         newurl = "https://google.com/search?q="+query;
