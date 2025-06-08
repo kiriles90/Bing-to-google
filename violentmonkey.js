@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Bing to Google
 // @namespace   github.com/kiriles90
-// @version     3.4
-// @date        2025-06-14
+// @version     3.5
+// @date        2025-06-15
 // @author      github.com/kiriles90
 // @updateURL   https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
 // @downloadURL https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
@@ -11,9 +11,9 @@
 // @grant       none
 // ==/UserScript==
 (() => {
-    const q = new URL(location).searchParams.get('q') || '',
+    const q = new URL(location.href).searchParams.get('q') || '',
           [engine, ...rest] = q.split(': '),
-          term = encodeURIComponent(rest.join(': ') || ''),
+          term = encodeURIComponent(rest.join(': ')),
           map = {
               '1337x': s => `https://1337x.to/search/${s}/1/`,
               'coverapi': s => `https://tv643.ct.ws/coverapi/#${s}`,
@@ -31,6 +31,6 @@
               'youtube': s => `https://www.youtube.com/results?search_query=${s}`,
               'yts': s => `https://yts.mx/browse-movies/${s}/all/all/0/latest/0/all`
           },
-          url = (map[engine] || (() => `https://google.com/search?q=${encodeURIComponent(q)}`))(term);
+          url = map[engine] ? map[engine](term) : `https://google.com/search?q=${encodeURIComponent(q)}`;
     location.replace(url);
 })();
