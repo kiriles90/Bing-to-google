@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Bing to Google
 // @namespace   github.com/kiriles90
-// @version     3.0
-// @date        2025-06-10
+// @version     3.2
+// @date        2025-06-12
 // @author      github.com/kiriles90
 // @updateURL   https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
 // @downloadURL https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
@@ -10,11 +10,12 @@
 // @run-at      document-start
 // @grant       none
 // ==/UserScript==
-(() => {
-    const q = new URL(location).searchParams.get('q') || '',
-          [engine, ...rest] = q.split(': '),
-          term = encodeURIComponent(rest.join(': ') || ''),
-          map = {
+(function(){
+    const params = new URLSearchParams(location.search),
+          query  = params.get('q') || '',
+          [engine, ...rest] = query.split(': '),
+          term   = encodeURIComponent(rest.length ? rest.join(': ') : query),
+          map     = {
               '1337x': s => `https://1337x.to/search/${s}/1/`,
               'coverapi': s => `https://tv643.ct.ws/coverapi/#${s}`,
               'eztv': s => `https://eztvx.to/search/${s}`,
@@ -30,7 +31,6 @@
               'yourbittorrent': s => `https://yourbittorrent.com/?q=${s}`,
               'youtube': s => `https://www.youtube.com/results?search_query=${s}`,
               'yts': s => `https://yts.mx/browse-movies/${s}/all/all/0/latest/0/all`
-          },
-          url = (map[engine] || (() => `https://google.com/search?q=${encodeURIComponent(q)}`))(term);
-    location.replace(url);
+          };
+    location.replace((map[engine] || (s => `https://google.com/search?q=${s}`))(term));
 })();
