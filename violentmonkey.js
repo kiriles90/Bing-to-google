@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name        Bing to Google
 // @namespace   github.com/kiriles90
-// @version     3.5
-// @date        2025-06-15
+// @version     3.6
+// @date        2025-06-21
 // @author      github.com/kiriles90
 // @updateURL   https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
 // @downloadURL https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
-// @include     *://*.bing.com/search?*
+// @match       *://*.bing.com/search?*
 // @run-at      document-start
 // @grant       none
 // ==/UserScript==
