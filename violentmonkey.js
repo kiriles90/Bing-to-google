@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Bing to Google
 // @namespace   github.com/kiriles90
-// @version     4.0
-// @date        2025-07-13
+// @version     4.2
+// @date        2025-10-24
 // @author      github.com/kiriles90
 // @updateURL   https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
 // @downloadURL https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
@@ -16,7 +16,7 @@
     const term = encodeURIComponent(rest.join(': '));
     const map = {
         '1337x': s => `https://1337x.to/search/${s}/1/`,
-        'coverapi': s => `https://tv643.ct.ws/coverapi/#${s}`,
+        'coverapi': s => `https://tv643.ct.ws/?coverapi#${s}`,
         'eztv': s => `https://eztvx.to/search/${s}`,
         'maps': s => `https://www.google.com/maps/search/${s}/`,
         'imdb': s => `https://www.imdb.com/find?q=${s}`,
