@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Bing to Google
 // @namespace   github.com/kiriles90
-// @version     4.2
-// @date        2025-10-24
+// @version     4.4
+// @date        2025-12-01
 // @author      github.com/kiriles90
 // @updateURL   https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
 // @downloadURL https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
@@ -29,7 +29,7 @@
         'therarbg': s => `https://therarbg.to/get-posts/order:-se:keywords:${s}/`,
         'yourbittorrent': s => `https://yourbittorrent.com/?q=${s}`,
         'youtube': s => `https://www.youtube.com/results?search_query=${s}`,
-        'yts': s => `https://yts.mx/browse-movies/${s}/all/all/0/latest/0/all`
+        'yts': s => `https://yts.lt/browse-movies/${s}/all/all/0/latest/0/all`
     };
     const url = map[engine] ? map[engine](term) : `https://google.com/search?q=${encodeURIComponent(q)}`;
     location.replace(url);
