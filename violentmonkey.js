@@ -19,15 +19,14 @@
         'coverapi': s => `http://www.tv643.ct.ws/?coverapi#${s}`,
         'eztv': s => `https://eztvx.to/search/${s}`,
         'maps': s => `https://www.google.com/maps/search/${s}/`,
+        'music': s => `https://music.youtube.com/search?q=${s}`,
         'imdb': s => `https://www.imdb.com/find?q=${s}`,
         'nyaa': s => `https://nyaa.si/?f=0&c=0_0&q=${s}`,
         'opensubtitles': s => `https://www.opensubtitles.org/en/search2/moviename-${s}/sublanguageid-all`,
         'rlsbb': s => `https://search.rlsbb.ru/?s=${s}`,
-        'scene-rls': s => `https://scene-rls.net/?s=${s}`,
         'solidtorrents': s => `https://solidtorrents.to/search?q=${s}&sort=seeders`,
         'thepiratebay': s => `https://thepiratebay.org/search.php?q=${s}&all=on`,
         'therarbg': s => `https://therarbg.to/get-posts/order:-se:keywords:${s}/`,
-        'yourbittorrent': s => `https://yourbittorrent.com/?q=${s}`,
         'youtube': s => `https://www.youtube.com/results?search_query=${s}`,
         'yts': s => `https://yts.lt/browse-movies/${s}/all/all/0/latest/0/all`
     };
