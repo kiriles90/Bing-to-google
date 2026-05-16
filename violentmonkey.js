@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        Bing to Google
 // @namespace   github.com/kiriles90
-// @version     5.8
-// @date        2026-05-02
+// @version     5.9
+// @date        2026-05-16
 // @author      github.com/kiriles90
 // @updateURL   https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
 // @downloadURL https://raw.githubusercontent.com/kiriles90/Bing-to-google/master/violentmonkey.js
@@ -22,7 +22,7 @@
         'imdb': s => `https://www.imdb.com/find?q=${s}`,
         'nyaa': s => `https://nyaa.si/?f=0&c=0_0&q=${s}`,
         'opensubtitles': s => `https://www.opensubtitles.org/en/search2/moviename-${s}/sublanguageid-all`,
-        'playimdb': s => `http://www.tv643.ct.ws/?playimdb#${s}`,
+        'playimdb': s => `http://www.tv643.xo.je/?playimdb#${s}`,
         'rlsbb': s => `https://search.rlsbb.ru/?s=${s}`,
         'thepiratebay': s => `https://thepiratebay.org/search.php?q=${s}&all=on`,
         'therarbg': s => `https://therarbg.to/get-posts/order:-se:keywords:${s}/`,
