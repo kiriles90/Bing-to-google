@@ -23,12 +23,12 @@
         'nyaa': s => `https://nyaa.si/?f=0&c=0_0&q=${s}`,
         'opensubtitles': s => `https://www.opensubtitles.org/en/search2/moviename-${s}/sublanguageid-all`,
         'playimdb': s => `http://www.tv643.xo.je/?playimdb#${s}`,
-        'rlsbb': s => `https://search.rlsbb.ru/?s=${s}`,
+        'rlsbb': s => `https://search.rlsbb.to/?s=${s}`,
         'thepiratebay': s => `https://thepiratebay.org/search.php?q=${s}&all=on`,
         'therarbg': s => `https://therarbg.to/get-posts/order:-se:keywords:${s}/`,
         'torrentgalaxy': s => `https://torrentgalaxy.one/get-posts/keywords:${s}`,
         'youtube': s => `https://www.youtube.com/results?search_query=${s}`,
-        'yts': s => `https://yts.bz/browse-movies/${s}/all/all/0/latest/0/all`
+        'yts': s => `https://yts.gg/browse-movies/${s}/all/all/0/latest/0/all`
     };
     const url = map[engine] ? map[engine](term) : `https://google.com/search?q=${encodeURIComponent(q)}`;
     location.replace(url);
